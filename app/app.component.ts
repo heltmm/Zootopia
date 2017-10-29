@@ -6,9 +6,33 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
     <h1>Animals:</h1>
-    <ul>
-      <li *ngFor="let animal of animals">{{animal.species}}</li>
-    </ul>
+
+    <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Age</th>
+      <th>Diet</th>
+      <th>Location</th>
+      <th>Caretakers</th>
+      <th>Sex</th>
+      <th>Likes</th>
+      <th>Dislikes</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let animal of animals">
+        <td>{{animal.name}}</td>
+        <td>{{animal.species}}</td>
+        <td>{{animal.age}}</td>
+        <td>{{animal.diet}}</td>
+        <td>{{animal.location}}</td>
+        <td>{{animal.caretakers}}</td>
+        <td>{{animal.sex}}</td>
+        <td>{{animal.likes}}</td>
+        <td>{{animal.dislikes}}</td>
+      </tr>
+    </tbody>
+    </table>
   </div>
   `
 })

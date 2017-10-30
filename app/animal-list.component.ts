@@ -34,45 +34,8 @@ import { Animal } from './animal.model';
         </tr>
       </tbody>
     </table>
-    <div *ngIf="selectedAnimal">
-      <table class="table">
-        <thead>
-          <th>Name</th>
-          <th>Species</th>
-          <th>Age</th>
-          <th>Diet</th>
-          <th>Location</th>
-          <th>Caretakers</th>
-          <th>Sex</th>
-          <th>Likes</th>
-          <th>Dislikes</th>
-        </thead>
-        <tbody>
-          <td><input type="text" [(ngModel)]="selectedAnimal.name"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.species"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.age"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.diet"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.location"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.caretakers"></td>
-        </tbody>
-      </table>
-      <table class="table">
-        <thead>
-          <th>Sex</th>
-          <th>Likes</th>
-          <th>Dislikes</th>
-        </thead>
-        <tbody>
-          <td><input type="text" [(ngModel)]="selectedAnimal.sex"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.likes"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.dislikes"></td>
-          <td>
-            <button (click)="finishedEditing()">Finished Editing</button>
-          </td>
-        </tbody>
-      </table>
-    </div>
-    <div *ngIf="newAnimal === null">
+    
+    <div *ngIf="!newAnimal">
       <button (click)="newAnimal = true">Add new Animal</button>
     </div>
     <div *ngIf="newAnimal">
@@ -83,4 +46,15 @@ import { Animal } from './animal.model';
 
 export class AnimalListComponent {
   @Input() childAnimals: Animal[];
+  @Output() clickToEditSender = new EventEmitter();
+  @Output() clickToDeleteSender = new EventEmitter();
+
+  editAnimal(clickedAnimal: Animal){
+    this.clickToEditSender.emit(clickedAnimal);
+  }
+
+  deleteAnimal(clickedAnimal: Animal){
+    this.clickToDeleteSender.emit(clickedAnimal);
+  }
+
 }

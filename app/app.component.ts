@@ -6,8 +6,8 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
     <h1>Animals:</h1>
-    <animal-list [childAnimals]="masterAnimals">loading</animal-list>
-    <animal-edit>...Loading...</animal-edit>
+    <animal-list [childAnimals]="masterAnimals" (clickToEditSender)="editAnimal($event)"(clickToDeleteSender)="deleteAnimal($event)">loading</animal-list>
+    <animal-edit [childSeletedAnimal]="selectedAnimal">...Loading...</animal-edit>
     <animal-add> asdfasdf</animal-add>
   </div>
   `

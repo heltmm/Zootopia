@@ -4,8 +4,7 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'animal-edit',
   template: `
-
-    <div *ngIf="selectedAnimal">
+    <div *ngIf="childSeletedAnimal">
       <table class="table">
         <thead>
           <th>Name</th>
@@ -19,12 +18,12 @@ import { Animal } from './animal.model';
           <th>Dislikes</th>
         </thead>
         <tbody>
-          <td><input type="text" [(ngModel)]="selectedAnimal.name"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.species"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.age"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.diet"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.location"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.caretakers"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.name"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.species"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.age"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.diet"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.location"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.caretakers"></td>
         </tbody>
       </table>
       <table class="table">
@@ -34,9 +33,9 @@ import { Animal } from './animal.model';
           <th>Dislikes</th>
         </thead>
         <tbody>
-          <td><input type="text" [(ngModel)]="selectedAnimal.sex"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.likes"></td>
-          <td><input type="text" [(ngModel)]="selectedAnimal.dislikes"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.sex"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.likes"></td>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.dislikes"></td>
           <td>
             <button (click)="finishedEditing()">Finished Editing</button>
           </td>
@@ -53,5 +52,5 @@ import { Animal } from './animal.model';
 })
 
 export class AnimalEditComponent {
-
+  @Input() childSeletedAnimal: Animal;
 }

@@ -34,13 +34,7 @@ import { Animal } from './animal.model';
         </tr>
       </tbody>
     </table>
-    
-    <div *ngIf="!newAnimal">
-      <button (click)="newAnimal = true">Add new Animal</button>
-    </div>
-    <div *ngIf="newAnimal">
 
-    </div>
   `
 })
 

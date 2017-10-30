@@ -53,4 +53,9 @@ import { Animal } from './animal.model';
 
 export class AnimalEditComponent {
   @Input() childSeletedAnimal: Animal;
+  @Output() doneEditingSender = new EventEmitter();
+
+  finishedEditing(){
+    this.doneEditingSender.emit();
+  }
 }

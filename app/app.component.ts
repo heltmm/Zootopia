@@ -7,8 +7,8 @@ import { Animal } from './animal.model';
   <div class="container">
     <h1>Animals:</h1>
     <animal-list [childAnimals]="masterAnimals" (clickToEditSender)="editAnimal($event)"(clickToDeleteSender)="deleteAnimal($event)">loading</animal-list>
-    <animal-edit [childSeletedAnimal]="selectedAnimal">...Loading...</animal-edit>
-    <animal-add> asdfasdf</animal-add>
+    <animal-edit [childSeletedAnimal]="selectedAnimal" (doneEditingSender)="finishedEditing()">...Loading...</animal-edit>
+    <animal-add (newAnimalSender)="createAnimal($event)">..loading</animal-add>
   </div>
   `
 })
@@ -32,7 +32,7 @@ export class AppComponent {
  deleteAnimal(clickedAnimal){
    this.masterAnimals.splice(this.masterAnimals.indexOf(clickedAnimal), 1);
  }
- createAnimal(){
-
+ createAnimal(sentAnimal){
+   this.masterAnimals.push(sentAnimal)
  }
 }

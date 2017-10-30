@@ -12,10 +12,7 @@ import { Animal } from './animal.model';
           <th>Age</th>
           <th>Diet</th>
           <th>Location</th>
-          <th>Caretakers</th>
-          <th>Sex</th>
-          <th>Likes</th>
-          <th>Dislikes</th>
+
         </thead>
         <tbody>
           <td><input type="text" [(ngModel)]="childSeletedAnimal.name"></td>
@@ -23,16 +20,17 @@ import { Animal } from './animal.model';
           <td><input type="text" [(ngModel)]="childSeletedAnimal.age"></td>
           <td><input type="text" [(ngModel)]="childSeletedAnimal.diet"></td>
           <td><input type="text" [(ngModel)]="childSeletedAnimal.location"></td>
-          <td><input type="text" [(ngModel)]="childSeletedAnimal.caretakers"></td>
         </tbody>
       </table>
       <table class="table">
         <thead>
+          <th>Caretakers</th>
           <th>Sex</th>
           <th>Likes</th>
           <th>Dislikes</th>
         </thead>
         <tbody>
+          <td><input type="text" [(ngModel)]="childSeletedAnimal.caretakers"></td>
           <td><input type="text" [(ngModel)]="childSeletedAnimal.sex"></td>
           <td><input type="text" [(ngModel)]="childSeletedAnimal.likes"></td>
           <td><input type="text" [(ngModel)]="childSeletedAnimal.dislikes"></td>

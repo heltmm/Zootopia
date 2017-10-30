@@ -6,8 +6,8 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
     <div class="card mt-5">
-      <h1>Animals:</h1>
-      <div class="card-body">
+      <div class="card-block">
+        <h1>Animals:</h1>
         <animal-list [childAnimals]="masterAnimals" (clickToEditSender)="editAnimal($event)"(clickToDeleteSender)="deleteAnimal($event)">loading</animal-list>
         <animal-edit [childSeletedAnimal]="selectedAnimal" (doneEditingSender)="finishedEditing()">...Loading...</animal-edit>
         <animal-add (newAnimalSender)="createAnimal($event)">..loading</animal-add>

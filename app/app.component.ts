@@ -70,7 +70,51 @@ import { Animal } from './animal.model';
           <td><input type="text" [(ngModel)]="selectedAnimal.sex"></td>
           <td><input type="text" [(ngModel)]="selectedAnimal.likes"></td>
           <td><input type="text" [(ngModel)]="selectedAnimal.dislikes"></td>
-          <td><button>Finished Editing</button></td>
+          <td>
+            <button (click)="finishedEditing()">Finished Editing</button>
+          </td>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="newAnimal === null">
+      <button (click)="newAnimal = true">Add new Animal</button>
+    </div>
+    <div *ngIf="newAnimal">
+    <div *ngIf="selectedAnimal">
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Species</th>
+          <th>Age</th>
+          <th>Diet</th>
+          <th>Location</th>
+          <th>Caretakers</th>
+          <th>Sex</th>
+          <th>Likes</th>
+          <th>Dislikes</th>
+        </thead>
+        <tbody>
+          <td><input type="text" [(ngModel)]="selectedAnimal.name"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.species"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.age"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.diet"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.location"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.caretakers"></td>
+        </tbody>
+      </table>
+      <table class="table">
+        <thead>
+          <th>Sex</th>
+          <th>Likes</th>
+          <th>Dislikes</th>
+        </thead>
+        <tbody>
+          <td><input type="text" [(ngModel)]="selectedAnimal.sex"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.likes"></td>
+          <td><input type="text" [(ngModel)]="selectedAnimal.dislikes"></td>
+          <td>
+            <button (click)="finishedEditing()">Finished Editing</button>
+          </td>
         </tbody>
       </table>
     </div>
@@ -79,7 +123,8 @@ import { Animal } from './animal.model';
 })
 
 export class AppComponent {
-  selectedAnimal = null
+  selectedAnimal = null;
+  newAnimal = null;
 
   animals: Animal[] = [
    new Animal('Red Panda', 'Patches', 2, 'Omnivore', 'Northern Trail', 3, 'Female', 'Quite and shady trees', 'Loud noises'),
@@ -90,7 +135,13 @@ export class AppComponent {
  editAnimal(clickedAnimal){
    this.selectedAnimal = clickedAnimal;
  }
- deleteAnimal(){
+ finishedEditing(){
+   this.selectedAnimal = null;
+ }
+ deleteAnimal(clickedAnimal){
+   this.animals.splice(this.animals.indexOf(clickedAnimal), 1);
+ }
+ createAnimal(){
 
  }
 }
